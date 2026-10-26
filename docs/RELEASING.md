@@ -30,7 +30,10 @@ individual `.sha256` files; publication verifies and consolidates them.
 GitHub also provides its standard source-code archives. Linux builds run
 on Ubuntu 22.04, targeting glibc 2.35 or newer. Portable Linux archives require
 GTK 3, libudev and a working graphics driver. AppImage bundles include GTK libraries and
-resources through linuxdeploy's GTK plugin. FreeBSD builds run in a FreeBSD 14.5
+resources through linuxdeploy's GTK plugin; the launcher prefers the host system's
+Wayland and xkbcommon libraries over the bundled snapshot so the display stack cannot
+lag the host's graphics drivers, keeping bundled copies only as a fallback.
+FreeBSD builds run in a FreeBSD 14.5
 VM and require GTK 3, libxkbcommon, libudev-devd, libinotify and a working graphics driver at runtime.
 macOS bundles target macOS 11 or newer and are ad-hoc signed, without a
 Developer ID certificate or notarization. The ARM64 build packages `EarthCraft.app`
